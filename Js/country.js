@@ -11,13 +11,38 @@ const displayCountries = countries => {
     container.innerHTML = countriesHTML.join(" "); // .join diye comma ke bad deya hoyeche..
 }
 
-const getCountryHTML = country => {
+
+// original system
+/* const getCountryHTML = country => {
     return `
         <div class="country"> 
             <h2>${country.name.common}</h2>
             <img src="${country.flags.png}">
         </div>
     `
+} */
+
+// option 2
+/* const getCountryHTML = (country) => {
+    const {name, flags} = country;
+    return `
+        <div class="country"> 
+            <h2>${name.common}</h2>
+            <img src="${flags.png}">
+        </div>
+    `
+} */
+
+const getCountryHTML = ({name, flags, area, region}) => {
+    return `
+        <div class="country"> 
+            <h2>${name.common}</h2>
+            <p>Area: ${area}</p>
+            <p>Contient: ${region}</p>
+            <img src="${flags.png}">
+        </div>
+    `
 }
+
 
 loadCountries();
