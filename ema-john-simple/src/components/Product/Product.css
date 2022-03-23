@@ -50,6 +50,6 @@
 .btn-cart:hover{
     background-color: orange;
 }
-.btn-cart .btn-text{
+.btn-text{
     margin-right: 4px;
 }
