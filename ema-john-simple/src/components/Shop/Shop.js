@@ -11,7 +11,7 @@ const Shop = () => {
     const [cart, setCart] = useState([]);
 
     useEffect( () => {
-        console.log("product load before fetch");
+        // console.log("product load before fetch");
         fetch('products.json')
         .then(res => res.json())
         .then(data => 
@@ -21,7 +21,7 @@ const Shop = () => {
     }, []);
 
     useEffect( () =>{
-       console.log("Local storage first line",products)
+       // console.log("Local storage first line",products)
         const storedCart = getStoredCart();
         const saveCart = [];
         for(const id in storedCart){
@@ -37,11 +37,21 @@ const Shop = () => {
        //  console.log("Local storage finished")
     }, [products]);
 
-    const handleAddToCart = (product) => {
+    const handleAddToCart = (selectedProduct) => {
         // console.log(product)
-        const newCart = [...cart, product];
+        let newCart = [];
+        const exists = cart.find(product => product.id === selectedProduct.id);
+        if(!exists) {
+            selectedProduct.quantity = 1;
+            newCart = [...cart, selectedProduct];
+        }
+        else{
+            const rest = cart.filter(product => product.id !== selectedProduct.id);
+            exists.quantity = exists.quantity + 1;
+            newCart = [...rest, exists];
+        }
         setCart(newCart);
-        addToDb(product.id); // local storage a add kora hoise..
+        addToDb(selectedProduct.id); // local storage a add kora hoise..
     }
 
     return (
