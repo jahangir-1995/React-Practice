@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
 import './Shop.css'
+import { addToDb } from '../../utilities/fakedb';
 
 
 const Shop = () => {
@@ -18,7 +19,8 @@ const Shop = () => {
     const handleAddToCart = (product) => {
         // console.log(product)
         const newCart = [...cart, product];
-        setCart(newCart)
+        setCart(newCart);
+        addToDb(product.id); // local storage a add kora hoise..
     }
 
     return (
