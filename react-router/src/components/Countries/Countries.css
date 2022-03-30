@@ -1,0 +1,10 @@
+.country-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.country-list li{
+    margin:10px 60px 40px 20px;
+
+}
