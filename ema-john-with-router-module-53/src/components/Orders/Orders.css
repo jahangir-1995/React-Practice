@@ -1,0 +1,12 @@
+.review-items-container{
+    margin: 0 auto;
+}
+.review-btn {
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    font-size: 20px;
+    background: #f86e4b;
+    border: none;
+    border-radius: 8px;
+}
