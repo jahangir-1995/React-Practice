@@ -10,6 +10,9 @@ const RequireAuth = ({children}) => {
     if(!user){
         return <Navigate to="/login" state= {{ from: location }} replace />
     }
+    /* if(user.providerData[0]?.providerId === "password" && !user.emailVerified){
+        
+    } */ // ONLY INPUT EMAIL VERIFY KORBE...;
     return children;
 };
 

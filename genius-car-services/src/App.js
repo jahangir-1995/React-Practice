@@ -8,8 +8,9 @@ import Header from './Pages/Shared/Header/Header';
 import Login from './Pages/Login/Login/Login';
 import Notfound from './Pages/Shared/Notfound/Notfound';
 import Register from './Pages/Login/Register/Register';
-import Checkout from './Pages/Checkout/Checkout/Checkout';
 import RequireAuth from './Pages/Login/Login/RequireAuth/RequireAuth';
+import AddService from './Pages/AddService/AddService';
+import ManageServices from './Pages/ManageServices/ManageServices';
 
 function App() {
   return (
@@ -23,9 +24,14 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
 
-        <Route path='/checkout' element={
+        <Route path='/addservice' element={
           <RequireAuth>
-              <Checkout></Checkout>
+              <AddService></AddService>
+          </RequireAuth>
+        }></Route>
+        <Route path='/manage' element={
+          <RequireAuth>
+              <ManageServices></ManageServices>
           </RequireAuth>
         }></Route>
 
